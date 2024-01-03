@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minha Página com Login Seguro</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    ::selection {
+      background-color: gold;
+    }
+
+    html,
+    body {
+      height: 100%;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #333333;
+    }
+
+    nav {
+      background-color: #3333;
+      overflow: hidden;
+      float: right;
+      padding: 0;
+    }
+
+    nav a {
+      display: block;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      padding: 10px;
+    }
+
+    nav a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    /* Adicione um estilo para destacar o item ativo (opcional) */
+    nav a.active {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    /* Estilo para o formulário de login */
+    #login-form {
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: none;
+      position: fixed;
+      right: 0;
+      background-color: #333333;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    #entrar-form {
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: none;
+      position: fixed;
+      right: 0;
+      background-color: #f9f9f9;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    #sobre-form {
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: none;
+      position: fixed;
+      right: 0;
+      background-color: #000000;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    #contato-form {
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: none;
+      position: fixed;
+      right: 0;
+      background-color: #000000;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    p,
+    h1,
+    h2,
+    h3,
+    a {
+      color: #0fff00;
+      padding: 20px;
+      background-color: #000000;
+
+    }
+
+    h1,
+    h2,
+    h3 {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <a href="#" class="active">Home</a>
+    <a href="#" onclick="mostrarSobre()">Sobre</a>
+    <a href="#" onclick="mostrarLogin()">Login</a>
+    <a href="#" onclick="mostrarEntrar()">Registro</a>
+    <a href="#" onclick="mostrarContato()">Contato</a>
+  </nav>
+
+  <div>
+    <h1>Bem-vindo à Minha Página</h1>
+    <p>Conteúdo da sua página vai aqui.</p>
+  </div>
+  <div id="sobre-form">
+    <h1>Sobre</h1>
+    <p>Este site é para os seres humanos a fim de ler alguma coisa aleatória</p>
+  </div>
+  <div id="entrar-form">
+    <h1>Entre aqui</h1>
+  </div>
+  <div id="contato-form">
+    <h1>Entre em contato comigo</h1>
+    <p> <a href="https://www.instagram.com/@guillerme_2005/">Instagram</a></p>
+    <br>
+    <p> <a href="https://wa.me/+19145149342">Whatsapp</a></p>
+    <br>
+    <p> <a href="https://www.facebook.com/gui.abreu.313/">Facebook</a></p>
+
+
+  </div>
+  <!-- Formulário de Login -->
+  <div id="login-form">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <label for="username">Usuário:</label>
+      <input type="text" id="username" name="username" required>
+      <br>
+      <label for="password">Senha:</label>
+      <input type="password" id="password" name="password" required>
+      <br>
+      <button type="button" onclick="realizarLogin()">Entrar</button>
+    </form>
+  </div>
+  <script>    
+    function mostrarContato() {
+      document.getElementById('contato-form').style.display = 'block';
+    }
+
+    function mostrarSobre() {
+      document.getElementById('sobre-form').style.display = 'block';
+    }
+
+    function mostrarEntrar() {
+      document.getElementById('entrar-form').style.display = 'block';
+    }
+
+    function mostrarLogin() {
+      document.getElementById('login-form').style.display = 'block';
+    }
+
+    function realizarLogin() {
+      var formData = new FormData(document.getElementById('loginForm'));
+      fetch('processar_login.php', {
+          method: 'POST',
+          body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            alert("Login realizado com sucesso!");
+            document.getElementById('login-form').style.display = 'none';
+          } else {
+            alert("Erro de login. Verifique suas credenciais.");
+          }
+        })
+        .ca
+    }
+  </script>
+<audio controls><source src="../MODESTMOUSEVEVO - Modest Mouse - Poison the Well (Lyric Video).mp3"></audio>
+<script src="../main.js"
+</body>
+
+</html>
